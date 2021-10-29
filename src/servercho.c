@@ -18,8 +18,10 @@ int echo_lines(int csock) {
     while ((r = read(csock, buf, BUF_TAM)) > 0) {
         write(csock, buf, r);
         // this is not working! why ?
-        if (strcmp(buf, "ok\0") == 0) {
-            return (1);
+        if (strstr(buf, "!quit")) {
+            close(sockfd);
+            printf("Conexao Fechada!");
+            break;
         }
     }
 
