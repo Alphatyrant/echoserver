@@ -17,7 +17,7 @@ int echo_lines(int csock) {
     memset(&buf, 0, sizeof(buf));
     while ((r = read(csock, buf, BUF_TAM)) > 0) {
         write(csock, buf, r);
-        // this is not working! why ?
+        // its working! 
         if (strstr(buf, "!quit")) {
             close(sockfd);
             printf("Conexao Fechada!");
