@@ -4,4 +4,4 @@
 ------------------------------------
 
 #### To compile use cmake
-#### To conect use telnet 127.0.0.1 4456
+#### To conect use telnet 127.0.0.1 port:4456
