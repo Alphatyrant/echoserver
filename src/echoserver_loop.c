@@ -8,8 +8,14 @@
  * @copyright Copyright (c) 2021
  *
  */
-#include "../inc/foo/opcoes.h"
+#include "echoserver.h"
 
+/**
+ * @brief Create a echo from what is received
+ *
+ * @param csock
+ * @return int
+ */
 int echo_lines(int csock) {
     int r, i;
     char buf[BUF_TAM];
@@ -17,8 +23,8 @@ int echo_lines(int csock) {
     memset(&buf, 0, sizeof(buf));
     while ((r = read(csock, buf, BUF_TAM)) > 0) {
         write(csock, buf, r);
-        // its working! 
-        if (strstr(buf, "!quit")) {
+        // Caso receba exit fecha a conexao
+        if (strstr(buf, "exit")) {
             close(sockfd);
             printf("Conexao Fechada!");
             break;
@@ -28,6 +34,11 @@ int echo_lines(int csock) {
     conexaoforever(sockfd);
 }
 
+/**
+ * @brief Accepts the socket and stay listening
+ *
+ * @param sockfd
+ */
 void conexaoforever(int sockfd) {
     for (;;) {
         int csock, ok;

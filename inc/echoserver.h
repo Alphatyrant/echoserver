@@ -1,6 +1,6 @@
 /**
- * @file opcoes.h
- * @author your name (you@domain.com)
+ * @file echoserver.h
+ * @author @domain.com)
  * @brief
  * @version 0.1
  * @date 2021-10-15
@@ -8,6 +8,9 @@
  * @copyright Copyright (c) 2021
  *
  **/
+#ifndef ECHOSERVER_LOOP_H
+#define ECHOSERVER_LOOP_H
+
 #include <arpa/inet.h>
 #include <errno.h>
 #include <netdb.h>
@@ -31,3 +34,5 @@ struct sockaddr_in newAddr;
 socklen_t addr_size;
 
 void conexaoforever(int sockfd);
+
+#endif  // ECHOSERVER_LOOP_H
